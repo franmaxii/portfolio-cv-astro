@@ -1,46 +1,40 @@
-# Astro Starter Kit: Basics
+# CV / Portfolio — Franco Barrionuevo
 
-```sh
-npm create astro@latest -- --template basics
+Sitio de una sola página (CV interactivo + versión imprimible / ATS) hecho con
+**Astro 6** y **Tailwind CSS v4**.
+
+## Estructura
+
+```
+src/
+├── layouts/Layout.astro     # <head>: SEO, Open Graph, JSON-LD (Person), fuentes
+├── pages/index.astro        # Contenido del CV (hero, experiencia, skills, formación)
+├── components/
+│   └── FloatingContact.astro # Botones flotantes: WhatsApp, llamar, mail, imprimir
+└── styles/global.css        # Tailwind + tokens de tema (--font-display, etc.)
+public/
+├── favicon.svg
+├── robots.txt
+└── og.png                   # 1200×630 — imagen de previsualización al compartir (agregar)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Los datos de contacto y enlaces viven en el objeto `data` al inicio de
+`src/pages/index.astro`.
 
-## 🚀 Project Structure
+## Comandos
 
-Inside of your Astro project, you'll see the following folders and files:
+| Comando          | Acción                                        |
+| :--------------- | :-------------------------------------------- |
+| `npm install`    | Instala dependencias                          |
+| `npm run dev`    | Servidor local en `localhost:4321`           |
+| `npm run build`  | Build de producción en `./dist/`            |
+| `npm run preview`| Previsualiza el build                         |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Deploy
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Configurado para **Cloudflare Pages** (`wrangler.json`, salida en `./dist`).
 
-## 🧞 Commands
+## Pendiente
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Agregar `public/og.png` (1200×630) para las previsualizaciones al compartir.
+- Opcional: `npx astro add sitemap` para generar `sitemap-index.xml`.
